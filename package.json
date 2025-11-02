@@ -1,0 +1,48 @@
+{
+  "name": "security-checks",
+  "displayName": "Security Checks",
+  "description": "Check for security threats or any major security concerns in your code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [{
+      "command": "code-sec-checks.helloWorld",
+      "title": "Hello World"
+    }],
+    "chatParticipants": [
+      {
+        "id" : "code-sec-checker.security-checks",
+        "fullName": "Code Security Checker",
+        "name": "code-sec-checker",
+        "description" : "Analyze code for potential security vulnerabilities and provide fixes or suggestions.",
+        "isSticky": true,
+        "commands": [
+          {
+            "name" : "owasp",
+            "description": "Analyzze code for OWASP Top 10 security vulnerabilities."
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.36.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
