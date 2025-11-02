@@ -1,91 +1,108 @@
-# code-sec-checks README
+# Security Checks - VS Code Extension
 
-This is the README for your extension "code-sec-checks". After writing up a brief description, we recommend including the following sections.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+A comprehensive security analysis extension for Visual Studio Code that helps developers identify and fix security vulnerabilities in their code. This extension leverages AI-powered chat participants to provide detailed security audits and OWASP Top 10 vulnerability assessments.
 
 ## Features
 
-### Trigger Security Checks
-You can trigger the `code-sec-checks` by simply using `@code-sec-checks`. The currently open file in the editor will be analyzed for security vulnerabilities, and a detailed report will be generated.
+### 🔐 AI-Powered Security Analysis
+Interact with the **Code Security Checker** chat participant (`@code-sec-checker`) to analyze your code for potential security vulnerabilities. Get detailed findings with:
+- Executive summaries highlighting top risks
+- Detailed vulnerability analysis with severity ratings
+- Example exploit payloads and attack flows
+- Precise fixes with secure code snippets
+- CWE/OWASP references and defensive controls
 
-### OWASP Vulnerability Checks
-Use the `/owasp` command to scan your code for OWASP Top 10 vulnerabilities (A1-A10). This ensures your code is evaluated against common security risks.
+### 🛡️ OWASP Top 10 Vulnerability Scanning
+Use the `/owasp` command within the chat to perform specialized scans against the OWASP Top 10:
+- **A01**: Broken Access Control
+- **A02**: Cryptographic Failures
+- **A03**: Injection Vulnerabilities
+- **A04**: Insecure Design
+- **A05**: Security Misconfiguration
+- **A06**: Vulnerable & Outdated Components
+- **A07**: Identification & Authentication Failures
+- **A08**: Software & Data Integrity Failures
+- **A09**: Security Logging & Monitoring Failures
+- **A10**: Server-Side Request Forgery (SSRF)
 
-### File Tagging for Contextual Analysis
-Tag specific files with `#files` to include them in the context for security vulnerability evaluation. This allows you to analyze multiple files together for a comprehensive security check.
+### 📄 Multi-File Context Analysis
+Tag specific files with `#file:<filename>` to include them in your security analysis, enabling comprehensive cross-file vulnerability detection.
 
-### Examples
+## Usage
 
-1. **Triggering Security Checks**
-    ```
-    @code-sec-checks
-    ```
-    This will analyze the currently open file and generate a security report.
+### Getting Started
 
-2. **Scanning for OWASP Vulnerabilities**
-    ```
-    /owasp
-    ```
-    This will scan the code for OWASP Top 10 vulnerabilities.
+1. Open the VS Code Chat panel (View → Chat or `Cmd+Shift+I` / `Ctrl+Shift+I`)
+2. Start a conversation with `@code-sec-checker`
+3. Open the file you want to analyze or tag files using `#file:`
 
-3. **Tagging Files for Contextual Analysis**
-    ```
-    #files
-    src/app.js
-    src/utils.js
-    ```
-    The tagged files will be included in the security evaluation.
+### Commands
 
-4. **Combining Commands**
-    ```
-    @code-sec-checks
-    /owasp
-    #files
-    src/index.js
-    ```
-    This will trigger a security check, scan for OWASP vulnerabilities, and include the specified file in the analysis.
+#### General Security Check
+```
+@code-sec-checker analyze this code for security vulnerabilities
+```
+
+#### OWASP Top 10 Analysis
+```
+@code-sec-checker /owasp
+```
+
+#### Multi-File Analysis
+```
+@code-sec-checker check these files for security issues
+#file:src/app.js
+#file:src/auth.js
+```
+
+## What You Get
+
+Each security analysis includes:
+
+1. **Executive Summary** - High-level overview of critical risks
+2. **Detailed Findings** - For each vulnerability:
+   - Severity rating (Critical/High/Medium/Low)
+   - Risk and exploit narrative
+   - Example attack payload
+   - Precise fix with code snippets
+   - Defensive controls and references
+3. **Prioritized Remediation Checklist** - Action items organized by priority
+4. **Refactored Secure Code** - Production-ready code examples
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code version 1.105.0 or higher
+- GitHub Copilot Chat extension (for AI-powered analysis)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension contributes the following:
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- **Chat Participant**: `@code-sec-checker` - Main security analysis interface
+- **Commands**: `/owasp` - OWASP Top 10 focused analysis
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None at this time. Please report issues on the GitHub repository.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release of Security Checks extension featuring:
+- AI-powered security vulnerability analysis
+- OWASP Top 10 vulnerability scanning
+- Multi-file context support
+- Detailed remediation guidance
 
-Initial release of ... `Security Checker`
+---
 
-## Working with Markdown
+## Contributing
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+Contributions are welcome! Please feel free to submit issues and pull requests.
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
+## License
 
-## For more information
+See LICENSE file for details.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+**Secure coding starts here. Happy auditing! 🔒**
