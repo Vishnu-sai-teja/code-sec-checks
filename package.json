@@ -1,7 +1,9 @@
 {
   "name": "security-checks",
   "displayName": "Security Checks",
+  "icon": "assets/logo.png",
   "description": "Check for security threats or any major security concerns in your code",
+  "publisher": "Vishnu-sai-teja",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.105.0"
